@@ -5,6 +5,8 @@
 "
 "	Contents
 "		General Behavior
+"		Specialized Behavior
+"		Fonts and Colors
 "		GUI
 "		Shortcuts
 "
@@ -55,6 +57,53 @@ let maplocalleader=";"
 
 " }}}
 
+
+" Specialized Behavior {{{
+"============================================================================================
+"
+
+"
+" --- Language ---
+"
+let $LANG='en'				" Avoid garbled characters in Chinese language windows OS
+set spelllang=en_us			" spell checking
+set langmenu=en
+source $VIMRUNTIME/delmenu.vim
+source $VIMRUNTIME/menu.vim
+
+"
+" --- Wild Menu ---
+"
+set wildmenu				" Turn on the Wild menu
+set wildchar=<TAB>			" Hitting TAB in command mode will
+set wildmode=list:longest
+set wildignore=*.o,*~,*.pyc		" Ignore compiled files
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/node_modules/* " Ignore source repositories
+set wildignore+=*.DS_STORE,*.db,node_modules/**
+set wildignore+=*.jpg,*.png,*.gif	" Ignore image files
+set wildignore+=*/coverage
+
+"
+" --- Searching and Regexp ---
+"
+set gdefault				" RegExp global by default
+set magic				" Enable extended regexes.
+set hlsearch				" highlight searches
+set incsearch				" show the `best match so far' astyped
+set ignorecase				" Ignore case when searching
+set smartcase				" When searching try to be smart about cases
+
+nnoremap <CR> :nohlsearch<CR>		" Turns highlighting off in normal mode
+
+"
+" --- Sounds ---
+"
+set noerrorbells
+set novisualbell
+set t_vb=
+set tm=500
+
+" }}}
 
 " Fonts and Colors {{{
 "============================================================================================
