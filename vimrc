@@ -5,6 +5,8 @@
 "
 "	Contents
 "		General Behavior
+"		GUI
+"		Shortcuts
 "
 "======================================================================================================
 "
@@ -42,8 +44,17 @@ filetype indent on
 
 syntax on				" Turn on syntax highlighting
 
+"
+" --- Mapleader ---
+"
+let mapleader = ","			" With a map leader it's possible to do extra key
+					"    combinations like <leader>w saves the current
+					"    file
+
+let maplocalleader=";"
 
 " }}}
+
 
 " GUI {{{
 "=====================================================================================================
@@ -51,5 +62,18 @@ syntax on				" Turn on syntax highlighting
 
 au GUIEnter * simalt ~x			" Open VIM Maximized
 
+
+" }}}
+
+
+" Shortcuts {{{
+"=====================================================================================================
+"
+
+"
+" --- Easier vimrc handling ---
+"
+nnoremap <leader>ev :vsp $MYVIMRC<CR>		" Load the vimrc file
+nnoremap <leader>sv :source $MYVIMRC<CR>	" Reload the vimrc
 
 " }}}
