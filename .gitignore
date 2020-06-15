@@ -1,0 +1,4 @@
+## Vim and Plugin files
+*.swp
+bundle/
+
