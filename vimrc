@@ -6,12 +6,14 @@
 "	Contents
 "		General Behavior
 "		Specialized Behavior
+"		Files and Directories
 "		Fonts and Colors
 "		GUI
 "		Shortcuts
 "
 "=======================================================================================
 "
+
 
 " General Behavior {{{
 "=======================================================================================
@@ -102,6 +104,40 @@ set noerrorbells
 set novisualbell
 set t_vb=
 set tm=500
+
+" }}}
+
+
+" Files and Directories {{{
+"=======================================================================================
+"
+
+"
+" --- Local directories (centralize everything) ---
+"
+set directory=~/vimfiles/tempdirs/swaps
+set backupdir=~/vimfiles/tempdirs/backups
+set undodir=~/vimfiles/tempdirs/undodir
+
+"
+" --- Backup ---
+"
+set nobackup
+set nowritebackup
+set noswapfile
+set undofile
+
+"
+" --- Encoding ---
+"
+set encoding=utf8 nobomb			" Set utf8 as standard encoding and en_US as the
+						"    standard language
+set ffs=unix,dos,mac 				" Use Unix as the standard file type
+
+set autoread					" reload files if changed externally
+au FocusGained,BufEnter * checktime
+
+nnoremap <leader>w :w!<cr> 			" Fast saving
 
 " }}}
 
