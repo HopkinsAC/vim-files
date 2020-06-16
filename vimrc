@@ -9,8 +9,7 @@
 "		Files and Directories
 "		Fonts and Colors
 "		GUI
-"		Shortcuts
-"
+"		Keymappings
 "=======================================================================================
 "
 
@@ -132,12 +131,12 @@ set undofile
 "
 set encoding=utf8 nobomb			" Set utf8 as standard encoding and en_US as the
 						"    standard language
-set ffs=unix,dos,mac 				" Use Unix as the standard file type
+set ffs=unix,dos,mac				" Use Unix as the standard file type
 
 set autoread					" reload files if changed externally
 au FocusGained,BufEnter * checktime
 
-nnoremap <leader>w :w!<cr> 			" Fast saving
+nnoremap <leader>w :w!<cr>			" Fast saving
 
 " }}}
 
@@ -195,7 +194,7 @@ set ttyfast				" Send more characters at a given time.
 "
 set foldlevelstart=10			" Open most folds by default
 set foldnestmax=10			" deepest fold is 10 levels
-set foldcolumn=1 			" Add a bit extra margin to the left
+set foldcolumn=1			" Add a bit extra margin to the left
 set foldmethod=manual			" manual fold
 set nofoldenable			" don't fold by default
 
@@ -206,7 +205,7 @@ nnoremap <space> za			" space open closes folds
 "
 set showmatch				" Show matching brackets when text indicator
 					"    is over them
-set mat=2 				" How many tenths of a second to blink when
+set mat=2				" How many tenths of a second to blink when
 					"    matching brackets
 
 "
@@ -265,27 +264,66 @@ endif
 "
 " --- UI Widgets ---
 "
-au GUIEnter * simalt ~x				" Open VIM Maximized on Windows 10
+au GUIEnter * simalt ~x			" Open VIM Maximized on Windows 10
 
 if has('gui_running')
 	" toolbar and scrollbars
 	"
-	set guioptions-=m			" remove menu bar
-	set guioptions-=T			" remove toolbar
-	set guioptions-=L			" left scroll bar
-	set guioptions-=r			" right scroll bar
-	set guioptions-=b			" bottom scroll bar
-	set guioptions-=h			" only calculate bottom scroll size of current line
-	set shortmess=atI			" Don't show the intro message at start and
-						"   truncate msgs (avoid press ENTER msgs).
+	set guioptions-=m		" remove menu bar
+	set guioptions-=T		" remove toolbar
+	set guioptions-=L		" left scroll bar
+	set guioptions-=r		" right scroll bar
+	set guioptions-=b		" bottom scroll bar
+	set guioptions-=h		" only calculate bottom scroll size of current line
+	set shortmess=atI		" Don't show the intro message at start and
+					"   truncate msgs (avoid press ENTER msgs).
 endif
 
 " }}}
 
 
-" Shortcuts {{{
+" Keymappings {{{
 "=======================================================================================
 "
+set timeoutlen=500			" how long it wait for mapped commands
+set ttimeoutlen=100			" faster timeout for escape key and others
+set backspace=eol,start,indent		" Configure backspace so it acts as it should act
+set esckeys				" Allow cursor keys in insert mode.
+set nostartofline			" Make j/k respect the columns
+
+"
+" --- Basic Motions ---
+"
+" movement by screen line instead of file line (for text wrap)
+nnoremap j gj
+nnoremap k gk
+
+"
+" --- Window Motions ---
+"
+" Move between splits (windows)
+noremap <C-h> <C-w>h
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-l> <C-w>l
+
+" Open current buffer in a new split
+noremap <leader>s :vsplit<cr>
+noremap <leader>i :split<cr>
+
+" close window
+noremap <leader>q :clo<CR>
+
+"
+" --- automatic esc, really uncommon to type jj,jk ---
+"
+noremap jj <ESC>
+inoremap jk <Esc>
+
+"
+" --- Visually select the text that was last edited/pasted ---
+"
+nnoremap <leader>v `[v`]
 
 "
 " --- Easier vimrc handling ---
