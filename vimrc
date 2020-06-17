@@ -9,6 +9,7 @@
 "		Files and Directories
 "		Fonts and Colors
 "		GUI
+"       Text, Tabs, and Indents
 "		Keymappings
 "=======================================================================================
 "
@@ -51,8 +52,8 @@ syntax on				" Turn on syntax highlighting
 " --- Mapleader ---
 "
 let mapleader = ","			" With a map leader it's possible to do extra
-					"    key combinations like <leader>w saves the
-					"    current file
+"    key combinations like <leader>w saves the
+"    current file
 
 let maplocalleader=";"
 
@@ -130,7 +131,7 @@ set undofile
 " --- Encoding ---
 "
 set encoding=utf8 nobomb			" Set utf8 as standard encoding and en_US as the
-						"    standard language
+"    standard language
 set ffs=unix,dos,mac				" Use Unix as the standard file type
 
 set autoread					" reload files if changed externally
@@ -148,9 +149,9 @@ nnoremap <leader>w :w!<cr>			" Fast saving
 set t_Co=256				" 256 color terminal
 
 if has('gui_running')
-	"set guifont=ProggyClean:h16:cANSI:qDRAFT
-	set guifont=Lucida_Console:h14:cANSI:qDRAFT
-	set guitablabel=%M\ %t
+    "set guifont=ProggyClean:h16:cANSI:qDRAFT
+    set guifont=Lucida_Console:h14:cANSI:qDRAFT
+    set guitablabel=%M\ %t
 endif
 
 set background=dark
@@ -184,8 +185,8 @@ set whichwrap+=<,>,[,]
 " --- performance / buffer ---
 "
 set hidden				" can put buffer to the background without
-					"   writing to disk, will remember 
-					"   history/marks.
+"   writing to disk, will remember 
+"   history/marks.
 set lazyredraw				" don't update the display while executing macros
 set ttyfast				" Send more characters at a given time.
 
@@ -204,15 +205,15 @@ nnoremap <space> za			" space open closes folds
 " --- Bracket Matching ---
 "
 set showmatch				" Show matching brackets when text indicator
-					"    is over them
+"    is over them
 set mat=2				" How many tenths of a second to blink when
-					"    matching brackets
+"    matching brackets
 
 "
 " --- scrolling ---
 "
 set scrolloff=5				" Start scrolling n lines before horizontal
-					"    border of window.
+"    border of window.
 set sidescrolloff=7			" Start scrolling n chars before end of screen.
 set sidescroll=1			" The minimal number of columns to scroll
 
@@ -221,7 +222,7 @@ set sidescroll=1			" The minimal number of columns to scroll
 "
 set number relativenumber		" Enable line numbers.
 set numberwidth=5			" width of numbers line (default on gvim is 4)
-					"    horizontally.
+"    horizontally.
 
 :augroup numbertoggle
 :  autocmd!
@@ -233,7 +234,7 @@ set numberwidth=5			" width of numbers line (default on gvim is 4)
 " --- diff ---
 "
 set diffopt=filler			" Add vertical spaces to keep right and left
-					"    aligned.
+"    aligned.
 set diffopt+=iwhite			" Ignore whitespace changes.
 
 "
@@ -254,11 +255,11 @@ nnoremap <leader>c :set nolist!<CR>
 
 " Use a bar-shaped cursor for insert mode, even through tmux.
 if exists('$TMUX')
-	let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-	let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+    let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+    let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 else
-	let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-	let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+    let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+    let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
 
 "
@@ -267,17 +268,38 @@ endif
 au GUIEnter * simalt ~x			" Open VIM Maximized on Windows 10
 
 if has('gui_running')
-	" toolbar and scrollbars
-	"
-	set guioptions-=m		" remove menu bar
-	set guioptions-=T		" remove toolbar
-	set guioptions-=L		" left scroll bar
-	set guioptions-=r		" right scroll bar
-	set guioptions-=b		" bottom scroll bar
-	set guioptions-=h		" only calculate bottom scroll size of current line
-	set shortmess=atI		" Don't show the intro message at start and
-					"   truncate msgs (avoid press ENTER msgs).
+    " toolbar and scrollbars
+    "
+    set guioptions-=m		" remove menu bar
+    set guioptions-=T		" remove toolbar
+    set guioptions-=L		" left scroll bar
+    set guioptions-=r		" right scroll bar
+    set guioptions-=b		" bottom scroll bar
+    set guioptions-=h		" only calculate bottom scroll size of current line
+    set shortmess=atI		" Don't show the intro message at start and
+    "   truncate msgs (avoid press ENTER msgs).
 endif
+
+" }}}
+
+
+" Text, Tabs, and Indents {{{
+"=======================================================================================
+"
+
+set shiftwidth=4			" 1 tab == 4 spaces
+set tabstop=4
+set softtabstop=4			" number of spaces in tab when editing
+
+set expandtab				" Use spaces instead of tabs
+set smarttab				" Be smart when using tabs ;)
+
+set lbr					" Linebreak on 200 characters
+set textwidth=200
+
+set autoindent				" Auto indent
+set smartindent				" Smart indent
+set wrap				" Wrap lines
 
 " }}}
 
@@ -295,8 +317,8 @@ set nostartofline			" Make j/k respect the columns
 " --- Basic Motions ---
 "
 " movement by screen line instead of file line (for text wrap)
-nnoremap j gj
-nnoremap k gk
+noremap j gj
+noremap k gk
 
 "
 " --- Window Motions ---
@@ -317,7 +339,7 @@ noremap <leader>q :clo<CR>
 "
 " --- automatic esc, really uncommon to type jj,jk ---
 "
-noremap jj <ESC>
+inoremap jj <ESC>
 inoremap jk <Esc>
 
 "
