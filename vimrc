@@ -369,6 +369,33 @@ iabbrev cp Copyright © Andrew C. Hopkins
 " }}}
 
 
+" Command Groups {{{
+"==================================================================================================
+"
+augroup miscellaneous_commands
+    " clear commands before resetting
+    autocmd!
+
+    " when vimrc is edited, reload it
+    autocmd! bufwritepost ~/vimfiles/vimrc source %
+
+    " Only show cursorline in the current window and in normal mode
+    au WinLeave,InsertEnter * set nocul
+    au WinEnter,InsertLeave * set cul
+augroup EN
+
+
+"
+" --- Set up a visual indicator for text wrapping
+"
+if exists("&colorcolumn")
+    autocmd InsertEnter * set colorcolumn=90
+    autocmd InsertLeave * set colorcolumn=""
+endif
+
+" }}}
+
+
 " Plugins {{{
 "==================================================================================================
 
