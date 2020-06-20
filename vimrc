@@ -38,7 +38,9 @@ Plugin 'sjl/badwolf'
 Plugin 'tomasr/molokai'
 Plugin 'tpope/vim-vividchalk'
 
-
+" Vim-airline for easer status lines
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 " All of your Plugins must be added before the following line
 call vundle#end()			" required
@@ -352,6 +354,13 @@ nnoremap <leader>v `[v`]
 "
 nnoremap <leader>ev :vsp $MYVIMRC<CR>		" Load the vimrc file
 nnoremap <leader>sv :source $MYVIMRC<CR>	" Reload the vimrc
+
+" }}}
+
+
+" Plugins {{{
+"==================================================================================================
+
 
 " }}}
 
