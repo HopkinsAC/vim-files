@@ -1,6 +1,6 @@
 "
-"	Copyright (C) 2020 Andrew C. Hopkins
-"	2020-06-15T10:30:00-07
+"   Copyright © Andrew C. Hopkins
+"   2020-06-20T13:12:36-0700
 "	Version 0.1
 "
 "	Contents
@@ -27,7 +27,7 @@ filetype off				" required
 "
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/vimfiles/bundle/Vundle.vim
 call vundle#begin()
 
 " let Vundle manage Vundle, required
@@ -354,6 +354,17 @@ nnoremap <leader>v `[v`]
 "
 nnoremap <leader>ev :vsp $MYVIMRC<CR>		" Load the vimrc file
 nnoremap <leader>sv :source $MYVIMRC<CR>	" Reload the vimrc
+
+" }}}
+
+
+" Abbreviations {{{
+" __________________________________________________________________________________________________
+"
+
+iabbrev ach Andrew C. Hopkins
+iabbrev <expr> dts strftime("%FT%T%z")
+iabbrev cp Copyright © Andrew C. Hopkins
 
 " }}}
 
