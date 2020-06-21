@@ -412,18 +412,16 @@ endif
 let g:ctrlp_match_window = 'bottom,order:ttb'
 let g:ctrlp_switch_buffer = 0
 let g:ctrlp_working_path_mode = 0
-
-" Quickly find and open a file in the current working directory
-let g:ctrlp_map = '<C-f>'
-map <leader>j :CtrlP<cr>
-
-" Quickly find and open a buffer
-map <leader>b :CtrlPBuffer<cr>
-
-" Quickly find and open a recently opened file
-map <leader>f :CtrlPMRU<CR>
-
 let g:ctrlp_max_height = 20
+
+noremap <silent> <leader>tt :CtrlP<CR>
+noremap <silent> <leader>bt :CtrlPBuffer<CR>
+noremap <silent> <leader>mt :CtrlPMRU<CR>
+noremap <silent> <leader>tf :CtrlPClearCache<CR>
+
+
+
+
 
 
 " }}}
