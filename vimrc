@@ -42,6 +42,10 @@ Plugin 'tpope/vim-vividchalk'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
+" Fuzzy File Finding
+Plugin 'ctrlpvim/ctrlp.vim'
+
+
 " All of your Plugins must be added before the following line
 call vundle#end()			" required
 
@@ -382,6 +386,9 @@ augroup miscellaneous_commands
     " Only show cursorline in the current window and in normal mode
     au WinLeave,InsertEnter * set nocul
     au WinEnter,InsertLeave * set cul
+
+    autocmd BufEnter * silent! :lcd%:p:h
+
 augroup EN
 
 
@@ -398,6 +405,25 @@ endif
 
 " Plugins {{{
 "==================================================================================================
+
+"
+" --- Ctrl-P ---
+"
+let g:ctrlp_match_window = 'bottom,order:ttb'
+let g:ctrlp_switch_buffer = 0
+let g:ctrlp_working_path_mode = 0
+
+" Quickly find and open a file in the current working directory
+let g:ctrlp_map = '<C-f>'
+map <leader>j :CtrlP<cr>
+
+" Quickly find and open a buffer
+map <leader>b :CtrlPBuffer<cr>
+
+" Quickly find and open a recently opened file
+map <leader>f :CtrlPMRU<CR>
+
+let g:ctrlp_max_height = 20
 
 
 " }}}
